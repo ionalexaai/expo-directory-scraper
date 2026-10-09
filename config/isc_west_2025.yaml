@@ -1,0 +1,24 @@
+# ISC West exhibitor directory (RX show platform).
+#
+# Run:  python -m expo_scraper --config config/isc_west_2025.yaml
+
+name: isc-west-2025
+adapter: rx_platform
+directory_url: "https://www.discoverisc.com/west/en-us/2025-exhibitors/exhibitor-directory.html?locale=en-US&query="
+output_csv: output/isc_west_2025_exhibitors.csv
+
+# Politeness. Roughly one detail request per exhibitor; 0.25s x 4 workers ~= 800 exhibitors in a few minutes.
+request_delay_seconds: 0.25
+concurrency: 4
+
+# Everything under `rx:` is optional. The adapter reads these values from the
+# directory page itself; set them here only to pin or override what it finds.
+rx:
+  category_filter_name: "Product Categories"   # which filter group becomes the "Product Categories" column
+  # algolia_app_id: XD0U5M6Y4R
+  # algolia_api_key: ...
+  # event_id: evt-...
+  # event_edition_id: eve-...
+  # client_id: ...
+  # api_base_url: https://api.reedexpo.com/
+  # details_url_format: "https://www.discoverisc.com/west/en-us/2025-exhibitors/exhibitor-directory/exhibitor-details.{0}.html"

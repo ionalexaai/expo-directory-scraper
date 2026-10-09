@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "expo-directory-scraper"
+version = "0.1.0"
+description = "Pull trade-show exhibitor directories into CSV, one YAML config per directory."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "requests>=2.31,<3",
+    "PyYAML>=6.0,<7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+
+[project.scripts]
+expo-scraper = "expo_scraper.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["expo_scraper*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
